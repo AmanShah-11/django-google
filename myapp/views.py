@@ -13,7 +13,9 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
+from rest_framework import viewsets
 from .models import Schedule, ScheduleUsers
+from .serializers import ScheduleSerializer
 
 with open("secrets.txt", "r") as file:
     first_line = file.readline()
@@ -219,19 +221,25 @@ def users(request):
 
 
 def events(request):
+    pass
     # if request.method == "POST":
     #     pass
-    model = Schedule.objects.all().values_list(
-        "time_start",
-        "time_end",
-        "activity",
-        "user_invite"
-    )
-    return render(
-        request,
-        'myapp/detail.html',
-        {'model': model}
-    )
+    # model = Schedule.objects.all().values_list(
+    #     "time_start",
+    #     "time_end",
+    #     "activity",
+    #     "user_invite",
+    # )
+    # return render(
+    #     request,
+    #     'myapp/detail.html',
+    #     {'model': model}
+    # )
+
+
+class EventsView(viewsets.ModelViewSet):
+    serializer_class = ScheduleSerializer
+    queryset = Schedule.objects.all()
 
 
 def to_integer(dt):
