@@ -165,8 +165,11 @@ import React, { Component } from "react";
         this.state = {
           viewCompleted: false,
           activeItem: {
-            title: "",
-            description: "",
+            time_start: "",
+            time_end: "",
+            date: "",
+            activity: "",
+            user_invite: "",
             completed: false
           },
           todoList: []
@@ -177,7 +180,7 @@ import React, { Component } from "react";
       }
       refreshList = () => {
         axios
-          .get("http://localhost:8000/api/todos/")
+          .get("/myapp/allevents")
           .then(res => this.setState({ todoList: res.data }))
           .catch(err => console.log(err));
       };
@@ -210,6 +213,7 @@ import React, { Component } from "react";
         const newItems = this.state.todoList.filter(
           item => item.completed === viewCompleted
         );
+        
         return newItems.map(item => (
           <li
             key={item.id}
@@ -219,18 +223,18 @@ import React, { Component } from "react";
               className={`todo-title mr-2 ${
                 this.state.viewCompleted ? "completed-todo" : ""
               }`}
-              title={item.description}
+              title={item.activity}
             >
-              {item.title}
+              {item.activity}
             </span>
             <span>
-              {/* <button
+              <button
                 onClick={() => this.editItem(item)}
                 className="btn btn-secondary mr-2"
               >
                 {" "}
                 Edit{" "}
-              </button> */}
+              </button>
               <button
                 onClick={() => this.handleDelete(item)}
                 className="btn btn-danger"
@@ -248,26 +252,26 @@ import React, { Component } from "react";
         this.toggle();
         if (item.id) {
           axios
-            .put(`http://localhost:8000/myapp/newevents/${item.id}/`, item)
+            .put(`/myapp/allevents/${item.id}/`, item)
             .then(res => this.refreshList());
           return;
         }
         axios
-          .post("http://localhost:8000/myapp/newevents/", item)
+          .post("/myapp/allevents/", item)
           .then(res => this.refreshList());
       };
       handleDelete = item => {
         axios
-          .delete(`http://localhost:8000/myapp/newevents/${item.id}`)
+          .delete(`/myapp/allevents/${item.id}`)
           .then(res => this.refreshList());
       };
-      // createItem = () => {
-      //   const item = { title: "", description: "", completed: false };
-      //   this.setState({ activeItem: item, modal: !this.state.modal });
-      // };
-      // editItem = item => {
-      //   this.setState({ activeItem: item, modal: !this.state.modal });
-      // };
+      createItem = () => {
+        const item = { title: "", description: "", completed: false };
+        this.setState({ activeItem: item, modal: !this.state.modal });
+      };
+      editItem = item => {
+        this.setState({ activeItem: item, modal: !this.state.modal });
+      };
       render() {
         return (
           <main className="content">
@@ -275,11 +279,11 @@ import React, { Component } from "react";
             <div className="row ">
               <div className="col-md-6 col-sm-10 mx-auto p-0">
                 <div className="card p-3">
-                  {/* <div className="">
+                  <div className="">
                     <button onClick={this.createItem} className="btn btn-primary">
                       Add task
                     </button>
-                  </div> */}
+                  </div>
                   {this.renderTabList()}
                   <ul className="list-group list-group-flush">
                     {this.renderItems()}
