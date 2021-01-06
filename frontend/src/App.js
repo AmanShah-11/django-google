@@ -266,7 +266,7 @@ import React, { Component } from "react";
           .then(res => this.refreshList());
       };
       createItem = () => {
-        const item = { title: "", description: "", completed: false };
+        const item = { time_start: "", time_end: "", date: "", activity: "", user_invite: "", completed: ""};
         this.setState({ activeItem: item, modal: !this.state.modal });
       };
       editItem = item => {
@@ -275,13 +275,13 @@ import React, { Component } from "react";
       render() {
         return (
           <main className="content">
-            <h1 className="text-white text-uppercase text-center my-4">Todo app</h1>
+            <h1 className="text-black text-center my-4">Event Scheduler App</h1>
             <div className="row ">
               <div className="col-md-6 col-sm-10 mx-auto p-0">
                 <div className="card p-3">
                   <div className="">
                     <button onClick={this.createItem} className="btn btn-primary">
-                      Add task
+                      Add event
                     </button>
                   </div>
                   {this.renderTabList()}
