@@ -4,7 +4,7 @@ from rest_framework import routers
 from . import views
 
 router = routers.SimpleRouter()
-router.register(r'newevents', views.EventsView)
+router.register(r'allevents', views.EventsView)
 
 urlpatterns = [
     path('', views.schedule, name='schedule'),

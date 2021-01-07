@@ -47,7 +47,7 @@ import React, { Component } from "react";
                   <Label for="time_end">End Time</Label>
                   <Input
                     type="text"
-                    name="end_time"
+                    name="time_end"
                     value={this.state.activeItem.time_end}
                     onChange={this.handleChange}
                     placeholder="Enter End Time"
@@ -58,19 +58,29 @@ import React, { Component } from "react";
                   <Input
                     type="text"
                     name="date"
-                    value={this.state.activeItem.time_start}
+                    value={this.state.activeItem.date}
                     onChange={this.handleChange}
                     placeholder="Enter Date"
                   />
                 </FormGroup>
                 <FormGroup>
-                  <Label for="acitvity">Activity</Label>
+                  <Label for="activity">Activity</Label>
                   <Input
                     type="text"
                     name="activity"
-                    value={this.state.activeItem.time_end}
+                    value={this.state.activeItem.activity}
                     onChange={this.handleChange}
                     placeholder="Enter Activity"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Label for="user_invite">User Invite</Label>
+                  <Input
+                    type="text"
+                    name="user_invite"
+                    value={this.state.activeItem.user_invite}
+                    onChange={this.handleChange}
+                    placeholder="Enter User Invited"
                   />
                 </FormGroup>
               </Form>
