@@ -5,9 +5,10 @@ import datetime
 
 class ScheduleSerializer(serializers.ModelSerializer):
     completed = serializers.SerializerMethodField()
+
     def get_completed(self, obj):
         time_difference = datetime.date.today() - obj.date
-        if (time_difference.total_Seconds() >= 0):
+        if (time_difference.total_seconds() >= 0):
             return True
         return False
 

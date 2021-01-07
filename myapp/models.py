@@ -31,7 +31,7 @@ class ScheduleUsers(models.Model):
         ('SAS', 'Saskatchewan'),
         ('YUK', 'Yukon'),
     )
-    firstname = models.CharField(max_length=150, default="")
+    firstname = models.CharField(max_length=150, default="", unique=True)
     lastname = models.CharField(max_length=150, default="")
     email = models.CharField(max_length=150, default="")
     city = models.CharField(max_length=150, default="")
@@ -44,4 +44,4 @@ class Schedule(models.Model):
     time_end = models.TimeField(max_length=50, default="12:00")
     date = models.DateField(max_length=50, default=now())
     activity = models.CharField(max_length=50, default="Korean Food")
-    user_invite = models.ForeignKey(ScheduleUsers, on_delete=models.CASCADE, max_length=50, default="none")
+    user_invite = models.ForeignKey(ScheduleUsers, on_delete=models.CASCADE, max_length=50, to_field='firstname', default="none")
