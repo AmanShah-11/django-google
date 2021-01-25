@@ -21,13 +21,15 @@
 
 <p>
     The things used to build this application include:
-    <li>Django</li>
-    <li>Django Rest Framework</li>
-    <li>Python</li>
-    <li>React</li>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>Javascript</li>
+    <ul>
+        <li>Django</li>
+        <li>Django Rest Framework</li>
+        <li>Python</li>
+        <li>React</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+    </ul>
 <p>
 <p>
 Note: You will need to create your own Google API key to successfully run the API calls, and have that Google API key text in the first line of your 
