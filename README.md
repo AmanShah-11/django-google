@@ -1,22 +1,29 @@
-My Django project using Google API!
+<h1>Automatic Event Scheduler</h1>
 
-The Google APIs that I used include:
+<p>I built this application to help users schedule events when they have a general idea of what they want to do, but don't have a specific location in mind!  </p>
 
-Google Geocoding API,
+<p>The application takes in information from user input and returns the location of the event and creates an event for it with the invited user in Google Calendar (performed in Django)</p>
 
-Google Maps API,
+<p>These events are then displayed in the React frontend so that users can easily see all of their events and whether they have been completed or not (based on the date or the event). </p>
 
-Google Roads API,
 
-Google Calendar API
+<p> Users can register for the app through a simple user Django form that takes in basic information.</p>
 
-This project allows you to make users in a database and then schedule events 
-with them through the Google APIs.
+<p> The React App offers basic CRUD functionality, however the implementation with the Google API is limited to the Django form to allow the user several ways to schedule events with others. </p>
 
-This allow you to query for an event, and then the API will automatically match a location 
-with your query and schedule an event with the desired person. 
+<p>The Google APIs that I used include:</p>
+<ul>
+    <li>Google Geocoding API</li>
+    <li>Google Maps API</li>
+    <li>Google Roads API (Future implementation of this app will allow users to get directions to the specified location). </li>
+    <li>Google Calendar API</li>
+</ul>
 
-Note: You will need to create your own Google API key to successfully run
-the API calls, and have that Google API key text in the first line of your 
+<p>
+Note: You will need to create your own Google API key to successfully run the API calls, and have that Google API key text in the first line of your 
 "secrets.txt" file
- 
+ </p>
+
+ <p>
+ Note: You will need to verify access to your google calendar through an OAuth verification, this happens automatically when the script is ran on a new google account through Quikstart.
+ </p>
