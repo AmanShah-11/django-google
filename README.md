@@ -6,7 +6,6 @@
 
 <p>These events are then displayed in the React frontend so that users can easily see all of their events and whether they have been completed or not (based on the date or the event). </p>
 
-
 <p> Users can register for the app through a simple user Django form that takes in basic information.</p>
 
 <p> The React App offers basic CRUD functionality, however the implementation with the Google API is limited to the Django form to allow the user several ways to schedule events with others. </p>
@@ -39,3 +38,11 @@ Note: You will need to create your own Google API key to successfully run the AP
  <p>
  Note: You will need to verify access to your google calendar through an OAuth verification, this happens automatically when the script is ran on a new google account through Quikstart.
  </p>
+
+ <p>Here are screenshots of how the React application looks like!
+
+![alt text](./ReadMeImages/react-complete.PNG?raw=true)
+![alt text](./ReadMeImages/react-incomplete.PNG?raw=true)
+![alt text](./ReadMeImages/react-modal.PNG?raw=true)
+
+<p>Here are some screenshots of how the Django form looks like!
