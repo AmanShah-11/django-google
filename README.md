@@ -46,3 +46,8 @@ Note: You will need to create your own Google API key to successfully run the AP
 ![alt text](./ReadMeImages/react-modal.PNG?raw=true)
 
 <p>Here are some screenshots of how the Django form looks like!
+
+![alt text](./ReadMeImages/django-add-user1.PNG?raw=true)
+![alt text](./ReadMeImages/django-add-user2.PNG?raw=true)
+![alt text](./ReadMeImages/django-create-event1.PNG?raw=true)
+![alt text](./ReadMeImages/django-create-event2.PNG?raw=true)
