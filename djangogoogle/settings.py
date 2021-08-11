@@ -26,7 +26,7 @@ SECRET_KEY = "fkuf4l-^*ofxl%d#z03&0r*lrpe8m02773r$(cc9w$*f04jgch"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["djangogoogle.herokuapp.com", "127.0.0.1:8000", "localhost"]
+ALLOWED_HOSTS = ["djangogoogle.herokuapp.com", "127.0.0.1:8000/", "localhost", "127.0.0.1"]
 
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
