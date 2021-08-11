@@ -4,9 +4,11 @@ cachetools==4.1.1
 certifi==2020.11.8
 chardet==3.0.4
 django>=3.1.12
+dj-database-url==0.5.0
 django-bootstrap4==2.3.1
 django-cors-headers==3.6.0
-django-crispy-forms==1.10.0
+django-crispy-forms==1.10.0pip install dj-database-url
+django-heroku==0.3.1
 django-location-field==2.1.0
 djangorestframework==3.12.2
 google-api-core==1.23.0
