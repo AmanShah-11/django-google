@@ -15,6 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers
+from myapp import views
+
+router = routers.DefaultRouter()
+router.register(r'allevents', views.EventsView, 'allevents')
 
 urlpatterns = [
     path('myapp/', include('myapp.urls')),

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Modal from "./components/Modal";
 import axios from "axios";
 
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +23,21 @@ class App extends Component {
   }
   componentDidMount() {
     this.refreshList();
+  }
+  getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
   }
   refreshList = () => {
     axios
@@ -105,8 +123,9 @@ class App extends Component {
     
   };
   handleDelete = item => {
+    var csrftoken = this.getCookie('csrftoken');
     axios
-      .delete(`/myapp/allevents/${item.id}`)
+      .delete(`/myapp/allevents/${item.id}/`, { headers: { 'X-CSRFToken': csrftoken } })
       .then(res => this.refreshList());
   };
   createItem = () => {

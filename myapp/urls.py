@@ -9,6 +9,5 @@ router.register(r'allevents', views.EventsView)
 urlpatterns = [
     path('', views.schedule, name='schedule'),
     path('users', views.users, name='users'),
-    path('events', views.events, name='events'),
     path('', include(router.urls))
 ]
