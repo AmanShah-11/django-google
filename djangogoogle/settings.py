@@ -46,6 +46,14 @@ DATABASES = {}
 DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 # Application definition
 
+
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
+)
+
 INSTALLED_APPS = [
     "myapp.apps.MyappConfig",
     "django.contrib.admin",
@@ -59,13 +67,6 @@ INSTALLED_APPS = [
     "rest_framework",
     "location_field.apps.DefaultConfig",
 ]
-
-MIDDLEWARE_CLASSES = (
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-
-)
 
 MIDDLEWARE = [
     "whitenoise.runserver_nostatic",
@@ -152,7 +153,9 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "myapp/templates/myapp"),)
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, "myapp/templates/myapp"),)
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
