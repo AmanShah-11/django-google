@@ -24,7 +24,7 @@ SECRET_KEY = "fkuf4l-^*ofxl%d#z03&0r*lrpe8m02773r$(cc9w$*f04jgch"
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["djangogoogle.herokuapp.com", "127.0.0.1:8000", "localhost"]
 
@@ -40,19 +40,19 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 DATABASES = {}
 DATABASES["default"] = dj_database_url.config(conn_max_age=600)
 # Application definition
 
 
-MIDDLEWARE_CLASSES = (
-    # Simplified static file serving.
-    # https://warehouse.python.org/project/whitenoise/
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-
-)
+# MIDDLEWARE_CLASSES = (
+#     # Simplified static file serving.
+#     # https://warehouse.python.org/project/whitenoise/
+#     # 'whitenoise.middleware.WhiteNoiseMiddleware',
+#
+# )
 
 INSTALLED_APPS = [
     "myapp.apps.MyappConfig",
@@ -69,9 +69,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    "whitenoise.runserver_nostatic",
-    "django.middleware.security.SecurityMiddleware"
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
+    # "whitenoise.runserver_nostatic",
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",

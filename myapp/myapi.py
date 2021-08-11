@@ -8,10 +8,10 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-with open("secrets.txt", "r") as file:
+with open("myapp/secrets.txt", "r") as file:
     first_line = file.readline()
 
-
+GOOGLE_API_KEY = first_line
 class GoogleMapsClient(object):
     lat = None
     lng = None
