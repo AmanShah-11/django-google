@@ -8,10 +8,10 @@ from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-with open("secrets.txt", "r") as file:
-    first_line = file.readline()
+# with open("secrets.txt", "r") as file:
+#     first_line = file.readline()
 
-GOOGLE_API_KEY = first_line
+GOOGLE_API_KEY = "AIzaSyB5kL9hTDTLwIoqFuELHtWV9_rLBW81P-c"
 
 
 class GoogleMapsClient(object):
@@ -102,14 +102,14 @@ class GoogleMapsClient(object):
                 creds = pickle.load(token)
         # If there are no (valid) credentials available, let the user log in.
         if not creds or not creds.valid:
-            if creds and creds.expired and creds.refresh_token:
-                creds.refresh(Request())
-            else:
-                flow = InstalledAppFlow.from_client_secrets_file(
-                    os.path.abspath(r'C:\Users\Aman\PycharmProjects\djangogoogle\djangogoogle\myapp\credentials.json'),
-                    ['https://www.googleapis.com/auth/calendar']
-                )
-                creds = flow.run_local_server(port=0)
+            # if creds and creds.expired and creds.refresh_token:
+            #     creds.refresh(Request())
+            # else:
+            flow = InstalledAppFlow.from_client_secrets_file(
+                os.path.abspath(r'C:\Users\Aman\PycharmProjects\djangogoogle\djangogoogle\myapp\credentials.json'),
+                ['https://www.googleapis.com/auth/calendar']
+            )
+            creds = flow.run_local_server(port=0)
             # Save the credentials for the next run
             with open('token.pickle', 'wb') as token:
                 pickle.dump(creds, token)
