@@ -17,7 +17,7 @@ import dotenv
 import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = 'fkuf4l-^*ofxl%d#z03&0r*lrpe8m02773r$(cc9w$*f04jgch'
 # Quick-start development settings - unsuitable for production
@@ -34,7 +34,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 STATIC_URL = '/static'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().root.root
+# BASE_DIR = Path(__file__).resolve().root.root
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
