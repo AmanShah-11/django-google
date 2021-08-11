@@ -60,8 +60,17 @@ INSTALLED_APPS = [
     "location_field.apps.DefaultConfig",
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = (
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
     'whitenoise.middleware.WhiteNoiseMiddleware',
+
+)
+
+MIDDLEWARE = [
+    "whitenoise.runserver_nostatic",
+    "django.middleware.security.SecurityMiddleware"
+    # "whitenoise.middleware.WhiteNoiseMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
